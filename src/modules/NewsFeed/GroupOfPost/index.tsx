@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import unsplashApi from "@services/apiConfig/unsplashApi";
 import SinglePost from "@/common/components/SinglePost";
-import { Photo } from "@common/types/Photo";
+import { PhotoData } from "@/common/types/PhotoData";
 import { randomPhotoApi } from "../api/randomPhoto";
+import styles from "@styles/GroupOfPost.module.css";
 
 const GroupOfPost: React.FC = () => {
-  const [photos, setPhotos] = useState<Photo[]>([]);
+  const [photos, setPhotos] = useState<PhotoData[]>([]);
 
   useEffect(() => {
     // Make a GET request to the Unsplash API
@@ -16,12 +16,13 @@ const GroupOfPost: React.FC = () => {
 
   return (
     <div>
-      <h1>Unsplash Photos</h1>
-      <ul>
-        {photos.map((photo) => (
-          <SinglePost photoData={photo} key={photo.id} />
-        ))}
-      </ul>
+      <div className={styles.gop234root}>
+        <div className={styles.gop235feed}>
+          {photos.map((photo) => (
+            <SinglePost photoData={photo} key={photo.id} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
