@@ -19,7 +19,7 @@
       "@components/*": ["./src/common/components/*"],
       "@pages/*": ["./src/pages/*"],
       "@styles/*": ["./src/styles/*"],
-      "@modules/*": ["./src/common/modules/*"],
+      "@modules/*": ["./src/modules/*"],
       "@services/*": ["./src/services/*"],
       "@type/*": ["./src/common/types/*"],
       "@common/*": ["./src/common/*"],
