@@ -6,9 +6,8 @@ import styles from "@styles/GroupOfPost.module.css";
 import ErrorComponent from "@/common/components/ErrorComponent";
 import Loader from "@/common/components/LoaderComponent";
 
-const GroupOfPost: React.FC<{ page: number; setReadyState: Function;urlString :string }> = ({
+const GroupOfPost: React.FC<{ page: number; urlString :string }> = ({
   page = 1,
-  setReadyState,
   urlString="/photos"
 }) => {
   const [photos, setPhotos] = useState<PhotoData[]>([]);
@@ -18,9 +17,6 @@ const GroupOfPost: React.FC<{ page: number; setReadyState: Function;urlString :s
   useMemo(() => {
     randomPhotoApi({ page,urlString })
       .then((res) => {
-        setTimeout(() => {
-          setReadyState(true);
-        }, 4000);
         setIsLoaded(true);
         setPhotos(res?.data);
       })

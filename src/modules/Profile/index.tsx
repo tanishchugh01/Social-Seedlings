@@ -4,6 +4,7 @@ import { UserData } from "@/common/types/userData";
 import ErrorComponent from "@/common/components/ErrorComponent";
 import LoaderComponent from "@/common/components/LoaderComponent";
 import NewsFeed from "../NewsFeed";
+import styles from "@styles/Profile.module.css";
 
 const Profile: React.FC<{ userName: "string" }> = ({
   userName ,
@@ -33,6 +34,7 @@ const Profile: React.FC<{ userName: "string" }> = ({
   // unsplash profile
   return (
     <div>
+      <img src={userDetails?.profile_image.medium} alt="" className="pf234dispimg" />
       <div className="">{userDetails?.name}</div>
       {/* <div className="">{userName}</div> */}
       <div className="">{userDetails?.bio}</div>

@@ -1,15 +1,18 @@
 import changeDateFormat from "@/common/methods/changeDateFormat";
 import { PhotoData } from "@/common/types/PhotoData";
 import styles from "@styles/SinglePost.module.css";
+import Link from "next/link";
 
 const SinglePost: React.FC<{ photoData: PhotoData }> = ({ photoData }) => {
   return (
     <div className={styles.sp121postBody}>
+      <Link href={`/profile/${photoData.user.username}`}>
       <img
         className={styles.sp122profilePic}
         src={photoData.user.profile_image.small}
         alt="User Profile"
       />
+      </Link>
 
       <div className={styles.sp123postContent}>
         <div className={styles.sp124postHeader}>

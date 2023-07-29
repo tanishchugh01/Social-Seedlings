@@ -112,6 +112,9 @@ const SinglePost: React.FC<{ photoData: PhotoData }> = ({ photoData }) => {
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
+  padding: 3%;
+  border: 0.5px #c0c0c0 solid;
+  border-radius: 2px;
 }
 
 .sp123postContent{
@@ -133,35 +136,36 @@ const SinglePost: React.FC<{ photoData: PhotoData }> = ({ photoData }) => {
 }
 
 .sp125postHeaderName{
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
 .sp126postHeaderUsername{
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #8e8e8e;
 }
 
 .sp127postHeaderDate{
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #8e8e8e;
 }
 
 .sp128postHeaderDate{
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #8e8e8e;
 }
 
 .sp129postHeaderDots{
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #8e8e8e;
 }
 
 .sp130postText{
+  padding: 2%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -170,17 +174,19 @@ const SinglePost: React.FC<{ photoData: PhotoData }> = ({ photoData }) => {
 }
 
 .sp131postText{
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #8e8e8e;
 }
 
 .sp132postImage{
+  margin-top: 3%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  /* padding: 5%; */
 }
 
 .sp133postImage{
@@ -208,7 +214,7 @@ const SinglePost: React.FC<{ photoData: PhotoData }> = ({ photoData }) => {
 } */
 
 .sp136postImageOverlayIcon{
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #8e8e8e;
   margin: 0.75rem;
