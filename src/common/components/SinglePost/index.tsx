@@ -4,7 +4,6 @@ import styles from "@styles/SinglePost.module.css";
 
 const SinglePost: React.FC<{ photoData: PhotoData }> = ({ photoData }) => {
   return (
-    // instagram style post
     <div className={styles.sp121postBody}>
       <img
         className={styles.sp122profilePic}
@@ -36,21 +35,12 @@ const SinglePost: React.FC<{ photoData: PhotoData }> = ({ photoData }) => {
 
           <div className={styles.sp132postImage}>
             <img
-              src={photoData.urls.full}
+              src={photoData.urls.small}
               alt={photoData.user.username}
               className={styles.sp133postImage}
             />
 
             <div className={styles.sp134postImageOverlay}>
-              {/* <span className={styles.sp136postImageOverlayIcon}>
-                <i className="bi bi-chat"></i>
-                <span className="">{}</span>
-              </span>
-              <span className={styles.sp136postImageOverlayIcon}>
-                <i className="bi bi-arrow-repeat"></i>
-                <span className="sp137iconNumber">{photoData.likes}</span>
-              </span> */}
-              {/* likes , views and downloads*/}
               <span className={styles.sp136postImageOverlayIcon}>
                 <i className="bi bi-heart"></i>
                 <span className="sp137iconNumber">{photoData.likes}</span>

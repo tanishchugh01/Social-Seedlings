@@ -1,18 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import SinglePost from "@/common/components/SinglePost";
 import { PhotoData } from "@/common/types/PhotoData";
 import { randomPhotoApi } from "../api/randomPhoto";
 import styles from "@styles/GroupOfPost.module.css";
+import ErrorComponent from "@/common/components/ErrorComponent";
+import Loader from "@/common/components/LoaderComponent";
 
-const GroupOfPost: React.FC = () => {
+const GroupOfPost: React.FC<{ page: number; setReadyState: Function;urlString :string }> = ({
+  page = 1,
+  setReadyState,
+  urlString="/photos"
+}) => {
   const [photos, setPhotos] = useState<PhotoData[]>([]);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const [error, setError] = useState<Error | null>(null);
 
-  useEffect(() => {
-    // Make a GET request to the Unsplash API
-    randomPhotoApi().then((res) => {
-      setPhotos(res?.data);
-    });
-  }, []);
+  useMemo(() => {
+    randomPhotoApi({ page,urlString })
+      .then((res) => {
+        setTimeout(() => {
+          setReadyState(true);
+        }, 4000);
+        setIsLoaded(true);
+        setPhotos(res?.data);
+      })
+      .catch((err) => {
+        setError(err);
+      });
+  }, [page,urlString]);
+  
+  if (error) {
+    return <ErrorComponent message={error.message} />;
+  } else if (!isLoaded) {
+    return <Loader />;
+  }
 
   return (
     <div>
