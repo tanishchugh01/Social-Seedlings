@@ -3,7 +3,7 @@ import { PhotoData } from "@/common/types/PhotoData";
 import styles from "@styles/SinglePost.module.css";
 import Link from "next/link";
 
-const SinglePost: React.FC<{ photoData: PhotoData }> = ({ photoData }) => {
+const SinglePost: React.FC<{ photoData?: PhotoData }> = ({ photoData }) => {
   return (
     <div className={styles.sp121postBody}>
       <Link href={`/profile/${photoData.user.username}`}>
