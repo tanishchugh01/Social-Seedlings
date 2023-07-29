@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import LoaderComponent from "@/common/components/LoaderComponent";
 
-const NewsFeed: NextPage<{ urlString: string | undefined }> = ({
+const NewsFeed: NextPage<{ urlString?: string | undefined }> = ({
   urlString = "/photos",
 }) => {
   // const [afterArr, setAfterArr] = useState<Array<number>>([1]);

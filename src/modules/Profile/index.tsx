@@ -6,7 +6,7 @@ import LoaderComponent from "@/common/components/LoaderComponent";
 import NewsFeed from "../NewsFeed";
 import styles from "@styles/Profile.module.css";
 
-const Profile: React.FC<{ userName: "string" }> = ({
+const Profile: React.FC<{ userName?: string | string[] }> = ({
   userName ,
 }) => {
   const [userDetails, setUserDetails] = useState<UserData>(null);
