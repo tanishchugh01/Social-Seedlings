@@ -1,0 +1,49 @@
+.gop234root
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.gop235feed
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}
+
+@media (max-width: 1200px)
+{
+    .gop235feed
+    {
+        width: 50%;
+    }
+}
+
+@media (max-width: 900px)
+{
+    .gop235feed
+    {
+        width: 70%;
+    }
+}
+
+@media (max-width: 600px)
+{
+    .gop235feed
+    {
+        width: 90%;
+    }
+}
+
+@media (max-width: 400px)
+{
+    .gop235feed
+    {
+        width: 100%;
+    }
+}

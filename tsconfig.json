@@ -18,13 +18,13 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/common/components/*"],
       "@pages/*": ["./src/pages/*"],
-      "@styles/*": ["./src/styles/*"],
+      "@styles/*": ["./src/common/styles/*"],
       "@modules/*": ["./src/modules/*"],
       "@services/*": ["./src/services/*"],
       "@type/*": ["./src/common/types/*"],
       "@common/*": ["./src/common/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.d.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.d.ts", "src/common/components/ErrorComponent"],
   "exclude": ["node_modules"]
 }

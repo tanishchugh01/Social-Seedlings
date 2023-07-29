@@ -1,0 +1,232 @@
+/* // <div className="resizeToScreen flex flex-row border hover:bg-white">
+// <img
+//   className="w-10 h-10 m-3 rounded-full border-none"
+//   src={userProfilePicture}
+//   alt="User Profile"
+// />
+
+// <div className="flex flex-col justify-items-start mt-3 ">
+//   <div className="flex justify-between">
+//     <span className="text-left">
+//       <span className="hover:underline cursor-pointer">
+//         <b>{profileName}</b>
+//       </span>
+//       &nbsp;
+//       <span className="text-gray-700">{username}</span>
+//       &nbsp; <span className="hiddenInPhone">&#183;</span> &nbsp;
+//       <span className="text-gray-700 hover:underline cursor-pointer hiddenInPhone">
+//         {date}
+//       </span>
+//     </span>
+//     <span className="p-2 h-10 w-10 rounded-full mr-1 me-3 hoverGlow">
+//       <i className="bi bi-three-dots"></i>
+//     </span>
+//   </div>
+//   <h6 className="text-left mb-2 mt-[-5px]  mr-7">{text}</h6>
+//   <div className=" mr-7">
+//     {textDescription === "" ? (
+//       <img
+//         src={urlForImage}
+//         alt={username}
+//         className=" rounded-2xl  border "
+//       />
+//     ) : (
+//       <p className=" [overflow-wrap:anywhere] text-justify">
+//         {textDescription}
+//       </p>
+//     )}
+//   </div>
+//   <div className="flex flex-row justify-between my-1 pr-8 w-full">
+//     <IconNumberPair icon="chat" number={numberOfComments} />
+//     <IconNumberPair icon="arrow-repeat" number={numberOfRetweets} />
+//     <IconNumberPair icon="heart" number={numberOfLikes} />
+//     <IconNumberPair icon="upload" funtionality={showFullScreen} number={null} />
+//   </div>
+// </div>
+// </div>
+
+const SinglePost: React.FC<{ photoData: PhotoData }> = ({ photoData }) => {
+  return (
+    // instagram style post
+    <div className={styles.sp125postBody}>
+      <img
+        className={styles.sp122profilePic}
+        src={photoData.user.profile_image.small}
+        alt="User Profile"
+      />
+
+      <div className={styles.sp123postContent}>
+        <div className={styles.sp124postHeader}>
+          <span className={styles.sp125postHeaderName}>
+            <b>{photoData.user.name}</b>
+          </span>
+          &nbsp;
+          <span className={styles.sp126postHeaderUsername}>
+            {photoData.user.username}
+          </span>
+          &nbsp; <span className={styles.sp127postHeaderDate}>&#183;</span>{" "}
+          &nbsp;
+          <span className={styles.sp128postHeaderDate}>
+            {photoData.created_at}
+          </span>
+          <span className={styles.sp129postHeaderDots}>
+            <i className="bi bi-three-dots"></i>
+          </span>
+        </div>
+
+        <div className={styles.sp130postText}>
+          <h6 className={styles.sp131postText}>{photoData.alt_description}</h6>
+
+          <div className={styles.sp132postImage}>
+            <img
+              src={photoData.urls.full}
+              alt={photoData.user.username}
+              className={styles.sp133postImage}
+            />
+
+            <div className={styles.sp134postImageOverlay}>
+              <div className={styles.sp135postImageOverlayIcons}>
+                <span className={styles.sp136postImageOverlayIcon}>
+                  <i className="bi bi-chat"></i>
+                </span>
+                <span className={styles.sp137postImageOverlayIcon}>
+                  <i className="bi bi-arrow-repeat"></i>
+                </span>
+                <span className={styles.sp138postImageOverlayIcon}>
+                  <i className="bi bi-heart"></i>
+                </span>
+                <span className={styles.sp139postImageOverlayIcon}>
+                  <i className="bi bi-upload"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     */
+
+.sp121postBody{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 3%;
+  border: 0.5px #c0c0c0 solid;
+  border-radius: 2px;
+}
+
+.sp123postContent{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.sp124postHeader{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-right: 3%;
+}
+
+.sp125postHeaderName{
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.sp126postHeaderUsername{
+  font-size: 1rem;
+  font-weight: 400;
+  color: #8e8e8e;
+}
+
+.sp127postHeaderDate{
+  font-size: 1rem;
+  font-weight: 400;
+  color: #8e8e8e;
+}
+
+.sp128postHeaderDate{
+  font-size: 1rem;
+  font-weight: 400;
+  color: #8e8e8e;
+}
+
+.sp129postHeaderDots{
+  font-size: 1rem;
+  font-weight: 400;
+  color: #8e8e8e;
+}
+
+.sp130postText{
+  padding: 2%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.sp131postText{
+  font-size: 1rem;
+  font-weight: 400;
+  color: #8e8e8e;
+}
+
+.sp132postImage{
+  margin-top: 3%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  /* padding: 5%; */
+}
+
+.sp133postImage{
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.sp134postImageOverlay{
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+/* 
+.sp135postImageOverlayIcons{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+} */
+
+.sp136postImageOverlayIcon{
+  font-size: 1rem;
+  font-weight: 400;
+  color: #8e8e8e;
+  margin: 0.75rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.sp137iconNumber
+{
+  margin-left: 13px;
+}
