@@ -1,6 +1,7 @@
 import changeDateFormat from "@/common/methods/changeDateFormat";
 import { PhotoData } from "@/common/types/PhotoData";
 import styles from "@styles/SinglePost.module.css";
+import Image from "next/image";
 import Link from "next/link";
 
 const SinglePost: React.FC<{ photoData?: PhotoData }> = ({ photoData }) => {
@@ -11,7 +12,7 @@ const SinglePost: React.FC<{ photoData?: PhotoData }> = ({ photoData }) => {
         className={styles.sp122profilePic}
         src={photoData.user.profile_image.small}
         alt="User Profile"
-      />
+        />
       </Link>
 
       <div className={styles.sp123postContent}>
@@ -28,9 +29,9 @@ const SinglePost: React.FC<{ photoData?: PhotoData }> = ({ photoData }) => {
           <span className={styles.sp128postHeaderDate}>
             {changeDateFormat(photoData.created_at)}
           </span>
-          <span className={styles.sp129postHeaderDots}>
+          {/* <span className={styles.sp129postHeaderDots}>
             <i className="bi bi-three-dots"></i>
-          </span>
+          </span> */}
         </div>
 
         <div className={styles.sp130postText}>
@@ -53,8 +54,11 @@ const SinglePost: React.FC<{ photoData?: PhotoData }> = ({ photoData }) => {
                 <span className="sp137iconNumber">{photoData.views}</span>
               </span>
               <span className={styles.sp136postImageOverlayIcon}>
-                <i className="bi bi-download"></i>
+                <a href={photoData.links.download} download target="_blank">
+                  {/* open full screen arrow icon on the right top */}
+                  <i className="bi bi-box-arrow-up-right"></i>
                 <span className="sp137iconNumber">{photoData.downloads}</span>
+                </a>
               </span>
             </div>
             {/* </div> */}

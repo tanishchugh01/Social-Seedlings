@@ -1,10 +1,8 @@
-
+import styles from '@styles/Loader.module.css';
 
 const LoaderComponent = () => {
   return (
-    <div className="loader">
-      Loading
-      <div className="loader__spinner" />
+    <div className={styles.loader}>
     </div>
   );
 };
