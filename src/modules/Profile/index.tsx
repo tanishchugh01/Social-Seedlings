@@ -38,9 +38,6 @@ const Profile: React.FC<{ userName?: string | string[] }> = ({ userName }) => {
       <div className={styles.pf235left}>
         <div className={styles.pf678imgCenter}>
           <img
-            // layout="fill"
-            // objectFit="contain"
-            // width="100%"
             src={userDetails?.profile_image.large}
             alt="profile Image"
             className={styles.pf236profilePic}
@@ -76,7 +73,7 @@ const Profile: React.FC<{ userName?: string | string[] }> = ({ userName }) => {
 
         {/* switch view */}
         <div className={styles.pf294switchViewPar}>
-          <div className=""></div>
+          {/* <div className={styles.pf295hideInSmall}></div> */}
           <button
             className={styles.pf241switchView}
             onClick={() => setIsScroll((prev) => !prev)}>
