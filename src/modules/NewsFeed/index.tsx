@@ -4,8 +4,9 @@ import { useCallback, useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import LoaderComponent from "@/common/components/LoaderComponent";
 
-const NewsFeed: NextPage<{ urlString?: string | undefined }> = ({
+const NewsFeed: NextPage<{ urlString?: string | undefined, isScroll?:Boolean }> = ({
   urlString = "/photos",
+  isScroll = true,
 }) => {
   // const [afterArr, setAfterArr] = useState<Array<number>>([1]);
   // const [noOfReels, setNoOfReels] = useState<number>(1);
@@ -78,7 +79,7 @@ const NewsFeed: NextPage<{ urlString?: string | undefined }> = ({
           </p>
         }>
         {afterArr.map((afterVal) => (
-          <GroupOfPost key={afterVal} page={afterVal} urlString={urlString} />
+          <GroupOfPost key={afterVal} page={afterVal} urlString={urlString} isScroll={isScroll} />
         ))}
       </InfiniteScroll>
     </div>

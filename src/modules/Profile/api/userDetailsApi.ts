@@ -7,6 +7,7 @@ export default async function userDetailsApi({
 }): Promise<AxiosResponse<UserData>> {
   try {
     const response = await unsplashApi.get<UserData>("users/" + userName);
+    console.log(response);
     return response;
   } catch (error) {
     console.error("Error fetching photos:", error);
