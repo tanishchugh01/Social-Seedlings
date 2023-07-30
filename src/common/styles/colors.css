@@ -1,0 +1,5 @@
+:root {
+  --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
+  --primary-bright: #ff8686;
+  /* --primart-dark: #ff0000; */
+}

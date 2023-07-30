@@ -2,12 +2,27 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap:2rem;
+  justify-content: space-around;
+  /* gap:2rem; */
+  /* margin-top: 2rem; */
+}
+
+.gop235feed > * {
   margin-top: 2rem;
 }
 
-@media (max-width: 768px) {
-  .gop235feed {
-    gap:3vw;
+/* .gop234root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  margin-left: 2%;
+  margin-right: 2%;
+} */
+
+/* @media (max-width: 768px) {
+  .gop235feed > * {
+    margin-top: 1rem;
   }
-}
+} */

@@ -1,12 +1,14 @@
 .gop237gridImage
 {
   /* width: 90%; */
-  height: 40vh;
+  height: 30vw;
   object-fit: cover;
   width: 30vw;
   border-radius: 3px;
-  margin-left: 5%;
+  /* margin-left: 5%; */
 }
+
+
 
 .gop237gridImage:hover
 {
@@ -14,16 +16,18 @@
   opacity: 0.8;
   
   scale:1.01;
-  transition: all 100ms ease-in-out;
+  transition: all 50ms ease-in-out;
 }
 
 @media (max-width: 768px) {
   .gop237gridImage
   {
-    width: 45vw;
-    height: 40vh;
+    width: 40vw;
+    height: 40vw;
+    /* height: 40vh; */
     object-fit: cover;
     border-radius: 3px;
-    margin-left: 5%;
+    /* margin-top: 5vw; */
+    /* margin-left: 5%; */
   }
 }
