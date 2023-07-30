@@ -5,17 +5,19 @@ import { randomPhotoApi } from "../api/randomPhoto";
 import styles from "@styles/GroupOfPost.module.css";
 import ErrorComponent from "@/common/components/ErrorComponent";
 import Loader from "@/common/components/LoaderComponent";
+import GridImages from "@/modules/Profile/GridImages";
 
-const GroupOfPost: React.FC<{ page: number; urlString :string }> = ({
-  page = 1,
-  urlString="/photos"
-}) => {
+const GroupOfPost: React.FC<{
+  page: number;
+  urlString: string;
+  isScroll: Boolean;
+}> = ({ page = 1, urlString = "/photos", isScroll = true }) => {
   const [photos, setPhotos] = useState<PhotoData[]>([]);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
 
   useMemo(() => {
-    randomPhotoApi({ page,urlString })
+    randomPhotoApi({ page, urlString })
       .then((res) => {
         setIsLoaded(true);
         setPhotos(res?.data);
@@ -23,12 +25,16 @@ const GroupOfPost: React.FC<{ page: number; urlString :string }> = ({
       .catch((err) => {
         setError(err);
       });
-  }, [page,urlString]);
-  
+  }, [page, urlString]);
+
   if (error) {
     return <ErrorComponent message={error.message} />;
   } else if (!isLoaded) {
     return <Loader />;
+  }
+
+  if (!isScroll) {
+    return <GridImages photodata={photos} />;
   }
 
   return (

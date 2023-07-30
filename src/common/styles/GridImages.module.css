@@ -1,0 +1,13 @@
+.gop235feed {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap:2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .gop235feed {
+    gap:3vw;
+  }
+}

@@ -1,3 +1,95 @@
-.pf234dispimg{
-  
+.pf231root {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
+
+.pf235left {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 30%;
+  position: fixed;
+  /* box shadow on right */
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.pf236profilePic {
+  width: 90%;
+  height: 100%;
+  border-radius: 9999px;
+}
+
+.pf982right {
+  margin-left: 30%;
+  width: 100%;
+}
+
+
+@media (max-width: 768px) {
+  .pf231root {
+    display: flex;
+    flex-direction: column;
+  }
+  .pf235left {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-shadow: none;
+  }
+  .pf982right {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+
+.pf678imgCenter {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.pf237name {
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  /* margin-left: 3%; */
+}
+
+.pf238bio {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-right: 2%;
+}
+
+.pf675texts {
+  margin-top: 1rem;
+  margin-left: 3%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+/* 
+.pf294switchViewPar
+{
+  
+} */
+
+.pf294switchViewPar
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items:end;
+  width: 100%;
+}
+
+.pf294switchView
+{
+  width: 30vw;
+}
+
