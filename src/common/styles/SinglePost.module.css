@@ -5,6 +5,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: 3%;
+  padding-bottom: 0;
   border: 0.5px #c0c0c0 solid;
   border-radius: 2px;
 }
@@ -50,6 +51,16 @@
   color: #8e8e8e;
 }
 
+@media screen and (max-width: 600px) {
+  .sp128postHeaderDate {
+    display: none;
+  }
+  
+  .sp127postHeaderDate {
+    display: none;
+  }
+}
+
 .sp129postHeaderDots {
   font-size: 1rem;
   font-weight: 400;
@@ -58,6 +69,7 @@
 
 .sp130postText {
   padding: 2%;
+  padding-bottom: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -68,6 +80,7 @@
 .sp131postText {
   font-size: 1rem;
   font-weight: 400;
+  margin-left: 3%;
   color: #8e8e8e;
 }
 
@@ -79,6 +92,12 @@
   align-items: flex-start;
   justify-content: center;
   /* padding: 5%; */
+}
+.ps933imgPar{
+  height: 100%;
+  width: 100%;
+  /* aspect-ratio: 9/12; */
+  position: relative;
 }
 
 .sp133postImage {
@@ -120,4 +139,12 @@
 
 .sp137iconNumber {
   margin-left: 13px;
+}
+
+.sp122profilePic
+{
+  /* width: 50px;
+  height: 50px; */
+  border-radius: 10%;
+  /* margin-right: 2%; */
 }

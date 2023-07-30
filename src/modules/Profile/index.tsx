@@ -6,6 +6,7 @@ import LoaderComponent from "@/common/components/LoaderComponent";
 import NewsFeed from "../NewsFeed";
 import styles from "@styles/Profile.module.css";
 import GridImages from "./GridImages";
+import Image from "next/image";
 
 const Profile: React.FC<{ userName?: string | string[] }> = ({ userName }) => {
   const [userDetails, setUserDetails] = useState<UserData>(null);
@@ -37,6 +38,9 @@ const Profile: React.FC<{ userName?: string | string[] }> = ({ userName }) => {
       <div className={styles.pf235left}>
         <div className={styles.pf678imgCenter}>
           <img
+            // layout="fill"
+            // objectFit="contain"
+            // width="100%"
             src={userDetails?.profile_image.large}
             alt="profile Image"
             className={styles.pf236profilePic}

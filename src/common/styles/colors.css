@@ -1,5 +1,13 @@
 :root {
   --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
   --primary-bright: #ff8686;
-  /* --primart-dark: #ff0000; */
+  --navBar-black: #151418;
+  --col1: rgba(29, 155, 240, 0.75);
+  --col2: rgba(29, 155, 240, 0.75);
+  --col3: var(--primary-bright);
+  --col4: var(--primary-bright);
+}
+
+.dark {
+  --navBar-black: #454545;
 }
