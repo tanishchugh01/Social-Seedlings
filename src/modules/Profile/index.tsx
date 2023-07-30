@@ -12,7 +12,7 @@ const Profile: React.FC<{ userName?: string | string[] }> = ({ userName }) => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
   const [isScroll, setIsScroll] = useState<boolean>(false);
-  
+
   useEffect(() => {
     userDetailsApi({ userName })
       .then((res) => {
@@ -72,8 +72,17 @@ const Profile: React.FC<{ userName?: string | string[] }> = ({ userName }) => {
 
         {/* switch view */}
         <div className={styles.pf294switchViewPar}>
-          <button className={styles.pf241switchView} onClick={() => setIsScroll(prev=>!prev)}> 
-            <i className="bi bi-grid-3x3-gap-fill"></i>
+          <div className=""></div>
+          <button
+            className={styles.pf241switchView}
+            onClick={() => setIsScroll((prev) => !prev)}>
+            Switch View &nbsp;
+            {/* <i className="bi bi-grid-3x3-gap-fill"></i> */}
+            {isScroll ? (
+              <i className="bi bi-grid-3x3-gap-fill"></i>
+            ) : (
+              <i className="bi bi-justify"></i>
+            )}
           </button>
         </div>
       </div>

@@ -83,13 +83,32 @@
 {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: space-around;
   align-items:end;
   width: 100%;
 }
 
-.pf294switchView
+.pf241switchView
 {
-  width: 30vw;
+  /* margin-right: 20%; */
+  /* width: 3vw; */
+  border-radius: 300rem;
+  background-color: transparent;
+  border: 3px solid var(--primary-bright);
+  color: var(--primary-bright);
+  font-weight: 600;
+  cursor: pointer;
+  font: 1rem;
+
+  padding: 1.2rem;
 }
 
+@media (prefers-color-scheme: light)
+{
+  .pf241switchView
+  {
+    /* border: 3px solid var(--primary-dark);
+    color: var(--primary-dark); */
+    /* text-shadow: 0 0 1px #ea5a5a; */
+  }
+}
