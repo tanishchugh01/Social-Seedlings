@@ -1,38 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sweet-Seedlings
 
-## Getting Started
+### A blazing-fast, full mobile-compatible social media application powered by Next.js
 
-First, run the development server:
+### [Live Demo](https://sweet-seedlings-tanishchugh01.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Salient Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Maintainable and Well Defined Folder Structure** - The application has a well defined folder structure and is easily maintainable.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+  Reference: [src/](https://github.com/tanishchugh01/Sweet-Seedlings/tree/main/src)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- **TypeScript** - The application is written in TypeScript that makes it more reliable and maintainable.
+- **Impressive UI** - The application has an impressive UI.
+- **Fully Mobile Compatible** - The application is fully mobile compatible and can be used on any device.
+- **Error Handling** - The application has error handling with reusable component.
+  Reference: [src/components/ErrorComponent](https://github.com/tanishchugh01/Sweet-Seedlings/tree/main/src/common/components/ErrorComponent)
+- **Loading State** - The application has loading state with reusable component.
+- **Reusable Components** - The application has reusable components.
+- **Reusable Functions** - The application has reusable functions.
+- **Modular Design** - The application has modular design so is easily maintainable and scalable.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Advanced Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **API Funnel Function** - All the api requests are made through a single function, so that in future if we want to change the http provider or configuration we can do it easily.
+  
+  Reference:[src/services/apiConfig](https://github.com/tanishchugh01/Sweet-Seedlings/tree/main/src/services/apiConfig)
+- **Cache** - The application uses cache to store the data and images to make it faster.
 
-## Learn More
+  [src/services/cache](https://github.com/tanishchugh01/Sweet-Seedlings/tree/main/src/services/cache)
+- **Blurhash** - The application uses blurhash to show the placeholder image while the actual image is being loaded.
+- **Shareable Links** - The application uses shareable links to share the posts.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  [Example](https://sweet-seedlings-tanishchugh01.vercel.app/post/I5j46lqAo-o)
+- **Light and Dark Mode** - The application has both light and dark mode with pure CSS.
+- **Lazy Loading** - The application uses lazy loading to load the images.
