@@ -28,7 +28,7 @@ const Profile: React.FC<{ userName?: string | string[] }> = ({ userName }) => {
   }, [userName]);
 
   if (error) {
-    return <ErrorComponent message={error.message} />;
+    return <ErrorComponent error={error} />;
   } else if (!isLoaded) {
     return <LoaderComponent />;
   }

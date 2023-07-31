@@ -1,4 +1,4 @@
-const addDataToCache = (cacheName: string, query: string, response: any) => {
+const addDataToCache = async (cacheName: string, query: string, response: any) => {
   const data = JSON.stringify(response);
 
   caches.open(cacheName).then((cache) => {

@@ -3,6 +3,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  overflow-y: hidden;
   /* gap:2rem; */
   /* margin-top: 2rem; */
 }

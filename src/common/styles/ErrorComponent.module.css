@@ -1,0 +1,24 @@
+.ec984root
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.ec843message
+{
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--primary-bright);
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.ec845image
+{
+  width: 50vw;
+  height: auto;
+}
