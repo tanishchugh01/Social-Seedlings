@@ -81,15 +81,17 @@ const SinglePost: React.FC<{ photoData?: PhotoData }> = ({ photoData }) => {
                 <i className="bi bi-heart"></i>
                 <span className="sp137iconNumber">{photoData.likes}</span>
               </span>
+              <Link href={`/post/${photoData.id}`}>
+                <span className={styles.sp136postImageOverlayIcon}>
+                  <i className="bi bi-upload"></i>
+                  {/* <span className="sp137iconNumber">{photoData.views}</span> */}
+                </span>
+              </Link>
               <span className={styles.sp136postImageOverlayIcon}>
-                <i className="bi bi-eye"></i>
-                <span className="sp137iconNumber">{photoData.views}</span>
-              </span>
-              <span className={styles.sp136postImageOverlayIcon}>
-                <a href={photoData.links.download} download target="_blank">
+                <a href={photoData.links.download} download target="_blank" title="Full Screen" rel="noreferrer">
                   {/* open full screen arrow icon on the right top */}
                   <i className="bi bi-box-arrow-up-right"></i>
-                  <span className="sp137iconNumber">{photoData.downloads}</span>
+                  {/* <span className="sp137iconNumber">{photoData.downloads}</span> */}
                 </a>
               </span>
             </div>

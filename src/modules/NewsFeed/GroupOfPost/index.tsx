@@ -8,17 +8,26 @@ import Loader from "@/common/components/LoaderComponent";
 import GridImages from "@/modules/Profile/GridImages";
 
 const GroupOfPost: React.FC<{
-  page: number;
+  page?: number;
   urlString: string;
-  isScroll: Boolean;
-  setIsError: Function
-}> = ({ page = 1, urlString = "/photos", isScroll = true, setIsError }) => {
+  isScroll?: Boolean;
+  setIsError?: Function;
+  formatterFunction?: Function;
+  extraParams?: any;
+}> = ({
+  page = 1,
+  urlString = "/photos",
+  isScroll = true,
+  setIsError,
+  formatterFunction,
+  extraParams,
+}) => {
   const [photos, setPhotos] = useState<PhotoData[]>([]);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    randomPhotoApi({ page, urlString })
+    randomPhotoApi({ page, urlString, extraParams, formatterFunction })
       .then((res) => {
         setIsLoaded(true);
         setPhotos(res);
