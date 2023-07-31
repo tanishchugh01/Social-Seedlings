@@ -26,7 +26,7 @@ const NavBar: React.FC = () => {
     <header className={style.nav323root}>
       <div className={style.nav325logo}>
         <Link href="/">
-          Social<span>Seedlings</span>
+          Sweet<span>Seedlings</span>
         </Link>
       </div>
       {/* <label className={style.nav894menuIcon} > */}
