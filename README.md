@@ -10,7 +10,7 @@
 ![image](https://github.com/tanishchugh01/Sweet-Seedlings/assets/72879445/04082249-1f2e-4804-926e-7adc5d0c649d)
 ![image](https://github.com/tanishchugh01/Sweet-Seedlings/assets/72879445/a1b4a577-b90e-40b5-ae90-a96e3f8676b9)
 ![image](https://github.com/tanishchugh01/Sweet-Seedlings/assets/72879445/ce5a094b-78f9-4930-ab76-2dae50c60424)
-
+![image](https://github.com/tanishchugh01/Sweet-Seedlings/assets/72879445/7b248c4d-67bc-48b8-949a-1a454f2d2a12)
 
 ## Salient Features
 
