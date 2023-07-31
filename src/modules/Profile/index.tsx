@@ -7,6 +7,7 @@ import NewsFeed from "../NewsFeed";
 import styles from "@styles/Profile.module.css";
 import GridImages from "./GridImages";
 import Image from "next/image";
+import { relative } from "path";
 
 const Profile: React.FC<{ userName?: string | string[] }> = ({ userName }) => {
   const [userDetails, setUserDetails] = useState<UserData>(null);
@@ -32,16 +33,20 @@ const Profile: React.FC<{ userName?: string | string[] }> = ({ userName }) => {
     return <LoaderComponent />;
   }
 
-  // unsplash profile
   return (
     <div className={styles.pf231root}>
       <div className={styles.pf235left}>
         <div className={styles.pf678imgCenter}>
-          <img
-            src={userDetails?.profile_image.large}
-            alt="profile Image"
-            className={styles.pf236profilePic}
-          />
+          <div style={{ position: "relative", height: "30vh", width: "30vh" }}>
+            <Image
+              layout="fill"
+              objectFit="cover"
+              loading="lazy"
+              src={userDetails?.profile_image.large}
+              alt="profile Image"
+              className={styles.pf236profilePic}
+            />
+          </div>
         </div>
         <div className={styles.pf675texts}>
           <div className={styles.pf237name}>{userDetails?.name}</div>

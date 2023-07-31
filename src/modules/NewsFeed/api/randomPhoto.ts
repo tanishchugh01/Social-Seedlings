@@ -3,23 +3,38 @@ import { AxiosResponse } from "axios";
 import { PhotoData } from "@/common/types/PhotoData";
 import { CONSTANTS } from "@/common/constants/CONSTANTS";
 import { number } from "prop-types";
+import isCacheExist from "@/services/cache/isCacheExist";
+import addDataToCache from "@/services/cache/addDataToCache";
 
-export async function randomPhotoApi ({page=CONSTANTS.API.UNSPLASH.page_random,urlString="/photos"}): Promise<AxiosResponse<PhotoData[]>> {
-  try {
+export async function randomPhotoApi ({page=CONSTANTS.API.UNSPLASH.page_random,urlString="/photos"}): Promise<PhotoData[]> {
+  const urlKey = urlString + page;
+  
+  try{
+    const cacheStorage = await caches.open('newsFeed');
+    const cachedResponse = await cacheStorage.match(urlKey);
+    
+    if(isCacheExist("newsFeed",urlKey) && cacheStorage && cachedResponse){
+      return await cachedResponse.json();
+    }
+  
     // page= CONSTANTS.API.UNSPLASH.page_random;
     const response = await unsplashApi.get<PhotoData[]>(urlString, {
       params: { count: CONSTANTS.API.UNSPLASH.PAGE_LIMIT, page:page },
     });
-    console.log(response)
-    return response;
+    
+    addDataToCache("newsFeed",urlKey,response.data);
+    // console.log(response)
+    return response.data;
   } catch (error) {
     console.error("Error fetching photos:", error);
     throw error;
   }
-};  
+  
+};
+  // if API response limit is exceeded, then I am showing random data
+  
   // return (
-  //   {
-  //     "data": [
+  //      [
   //         {
   //             "id": "Y7HQpT2BM0A",
   //             "slug": "a-black-and-white-photo-of-a-pregnant-woman-Y7HQpT2BM0A",
@@ -48,77 +63,6 @@ export async function randomPhotoApi ({page=CONSTANTS.API.UNSPLASH.page_random,u
   //                 "download_location": "https://api.unsplash.com/photos/Y7HQpT2BM0A/download?ixid=M3w0ODEwMjN8MHwxfGFsbHwxfHx8fHx8Mnx8MTY5MDY2MDk2Mnw"
   //             },
   //             "likes": 3,
-  //             "liked_by_user": false,
-  //             "current_user_collections": [],
-  //             "sponsorship": null,
-  //             "topic_submissions": {},
-  //             "user": {
-  //                 "id": "xqR4FqEXrN0",
-  //                 "updated_at": "2023-07-29T03:01:34Z",
-  //                 "username": "rudnrina",
-  //                 "name": "Irina Rudnik",
-  //                 "first_name": "Irina",
-  //                 "last_name": "Rudnik",
-  //                 "twitter_username": null,
-  //                 "portfolio_url": null,
-  //                 "bio": "Hi! My name is Irina. I'm from Kyiv🇺🇦",
-  //                 "location": "Ukraine 🇺🇦",
-  //                 "links": {
-  //                     "self": "https://api.unsplash.com/users/rudnrina",
-  //                     "html": "https://unsplash.com/@rudnrina",
-  //                     "photos": "https://api.unsplash.com/users/rudnrina/photos",
-  //                     "likes": "https://api.unsplash.com/users/rudnrina/likes",
-  //                     "portfolio": "https://api.unsplash.com/users/rudnrina/portfolio",
-  //                     "following": "https://api.unsplash.com/users/rudnrina/following",
-  //                     "followers": "https://api.unsplash.com/users/rudnrina/followers"
-  //                 },
-  //                 "profile_image": {
-  //                     "small": "https://images.unsplash.com/profile-1674221120615-d6e95a902444?ixlib=rb-4.0.3&crop=faces&fit=crop&w=32&h=32",
-  //                     "medium": "https://images.unsplash.com/profile-1674221120615-d6e95a902444?ixlib=rb-4.0.3&crop=faces&fit=crop&w=64&h=64",
-  //                     "large": "https://images.unsplash.com/profile-1674221120615-d6e95a902444?ixlib=rb-4.0.3&crop=faces&fit=crop&w=128&h=128"
-  //                 },
-  //                 "instagram_username": "rudnrina",
-  //                 "total_collections": 1,
-  //                 "total_likes": 18,
-  //                 "total_photos": 76,
-  //                 "accepted_tos": true,
-  //                 "for_hire": true,
-  //                 "social": {
-  //                     "instagram_username": "rudnrina",
-  //                     "portfolio_url": null,
-  //                     "twitter_username": null,
-  //                     "paypal_email": null
-  //                 }
-  //             }
-  //         },
-  //         {
-  //             "id": "CXfhe4t6WCE",
-  //             "slug": "a-woman-in-a-white-shirt-posing-for-a-picture-CXfhe4t6WCE",
-  //             "created_at": "2023-07-25T16:11:18Z",
-  //             "updated_at": "2023-07-28T23:42:12Z",
-  //             "promoted_at": "2023-07-28T07:08:01Z",
-  //             "width": 3759,
-  //             "height": 5760,
-  //             "color": "#f3f3f3",
-  //             "blur_hash": "LiLNS#IUE1Rj.7xaoft7?wMxV?t7",
-  //             "description": "Me ✨💌",
-  //             "alt_description": "a woman in a white shirt posing for a picture",
-  //             "breadcrumbs": [],
-  //             "urls": {
-  //                 "raw": "https://images.unsplash.com/photo-1690301458653-915ac42be8ff?ixid=M3w0ODEwMjN8MHwxfGFsbHwyfHx8fHx8Mnx8MTY5MDY2MDk2Mnw&ixlib=rb-4.0.3",
-  //                 "full": "https://images.unsplash.com/photo-1690301458653-915ac42be8ff?crop=entropy&cs=srgb&fm=jpg&ixid=M3w0ODEwMjN8MHwxfGFsbHwyfHx8fHx8Mnx8MTY5MDY2MDk2Mnw&ixlib=rb-4.0.3&q=85",
-  //                 "regular": "https://images.unsplash.com/photo-1690301458653-915ac42be8ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0ODEwMjN8MHwxfGFsbHwyfHx8fHx8Mnx8MTY5MDY2MDk2Mnw&ixlib=rb-4.0.3&q=80&w=1080",
-  //                 "small": "https://images.unsplash.com/photo-1690301458653-915ac42be8ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0ODEwMjN8MHwxfGFsbHwyfHx8fHx8Mnx8MTY5MDY2MDk2Mnw&ixlib=rb-4.0.3&q=80&w=400",
-  //                 "thumb": "https://images.unsplash.com/photo-1690301458653-915ac42be8ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0ODEwMjN8MHwxfGFsbHwyfHx8fHx8Mnx8MTY5MDY2MDk2Mnw&ixlib=rb-4.0.3&q=80&w=200",
-  //                 "small_s3": "https://s3.us-west-2.amazonaws.com/images.unsplash.com/small/photo-1690301458653-915ac42be8ff"
-  //             },
-  //             "links": {
-  //                 "self": "https://api.unsplash.com/photos/a-woman-in-a-white-shirt-posing-for-a-picture-CXfhe4t6WCE",
-  //                 "html": "https://unsplash.com/photos/a-woman-in-a-white-shirt-posing-for-a-picture-CXfhe4t6WCE",
-  //                 "download": "https://unsplash.com/photos/CXfhe4t6WCE/download?ixid=M3w0ODEwMjN8MHwxfGFsbHwyfHx8fHx8Mnx8MTY5MDY2MDk2Mnw",
-  //                 "download_location": "https://api.unsplash.com/photos/CXfhe4t6WCE/download?ixid=M3w0ODEwMjN8MHwxfGFsbHwyfHx8fHx8Mnx8MTY5MDY2MDk2Mnw"
-  //             },
-  //             "likes": 47,
   //             "liked_by_user": false,
   //             "current_user_collections": [],
   //             "sponsorship": null,
@@ -730,52 +674,7 @@ export async function randomPhotoApi ({page=CONSTANTS.API.UNSPLASH.page_random,u
   //                 }
   //             }
   //         }
-  //     ],
-  //     "status": 200,
-  //     "statusText": "",
-  //     "headers": {
-  //         "cache-control": "max-age=7200,stale-if-error=3600,stale-while-revalidate=60",
-  //         "content-language": "en",
-  //         "content-length": "2515",
-  //         "content-type": "application/json",
-  //         "link": "<https://api.unsplash.com/users/rudnrina/photos?count=10&page=8>; rel=\"last\", <https://api.unsplash.com/users/rudnrina/photos?count=10&page=2>; rel=\"next\"",
-  //         "x-per-page": "10",
-  //         "x-ratelimit-limit": "50",
-  //         "x-ratelimit-remaining": "48",
-  //         "x-total": "76"
-  //     },
-  //     "config": {
-  //         "transitional": {
-  //             "silentJSONParsing": true,
-  //             "forcedJSONParsing": true,
-  //             "clarifyTimeoutError": false
-  //         },
-  //         "adapter": [
-  //             "xhr",
-  //             "http"
-  //         ],
-  //         "transformRequest": [
-  //             null
-  //         ],
-  //         "transformResponse": [
-  //             null
-  //         ],
-  //         "timeout": 0,
-  //         "xsrfCookieName": "XSRF-TOKEN",
-  //         "xsrfHeaderName": "X-XSRF-TOKEN",
-  //         "maxContentLength": -1,
-  //         "maxBodyLength": -1,
-  //         "env": {},
-  //         "baseURL": "https://api.unsplash.com/",
-  //         "params": {
-  //             "count": 10,
-  //             "page": 1
-  //         },
-  //         "method": "get",
-  //         "url": "/users/rudnrina/photos"
-  //     },
-  //     "request": {}
-  // }
-
+  //     ]
   // )
-
+  //   }
+  // };

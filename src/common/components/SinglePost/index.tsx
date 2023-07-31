@@ -3,16 +3,24 @@ import { PhotoData } from "@/common/types/PhotoData";
 import styles from "@styles/SinglePost.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
+import { Blurhash } from "react-blurhash";
 
 const SinglePost: React.FC<{ photoData?: PhotoData }> = ({ photoData }) => {
+  const [isImageLoaded, setIsImageLoaded] = React.useState<boolean>(false);
   return (
     <div className={styles.sp121postBody}>
       <Link href={`/profile/${photoData.user.username}`}>
-      <img
-        className={styles.sp122profilePic}
-        src={photoData.user.profile_image.small}
-        alt="User Profile"
-        />
+        <div className={styles.sp289dpPar}>
+          <Image
+            layout="fill"
+            objectFit="cover"
+            loading="lazy"
+            className={styles.sp122profilePic}
+            src={photoData.user.profile_image.small}
+            alt="User Profile"
+          />
+        </div>
       </Link>
 
       <div className={styles.sp123postContent}>
@@ -38,11 +46,35 @@ const SinglePost: React.FC<{ photoData?: PhotoData }> = ({ photoData }) => {
           <h6 className={styles.sp131postText}>{photoData.alt_description}</h6>
 
           <div className={styles.sp132postImage}>
-            <img
-              src={photoData.urls.small}
-              alt={photoData.user.username}
-              className={styles.sp133postImage}
-            />
+            <div className={styles.sp829imagePar}>
+              <Image
+                src={photoData.urls.small}
+                layout="fill"
+                objectFit="cover"
+                loading="lazy"
+                onLoadingComplete={() => setIsImageLoaded(true)}
+                alt={photoData.user.username}
+                className={styles.sp133postImage}
+                style={{
+                  opacity: isImageLoaded ? 1 : 0,
+                  transition: "opacity 0.3s ease-in-out",
+                  zIndex: isImageLoaded ? 1 : -1,
+                }}
+              />
+              <Blurhash
+                hash={photoData.blur_hash}
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  objectFit: "cover",
+                  opacity: isImageLoaded ? 0 : 1,
+                  transition: "opacity 0.3s ease-in-out",
+                }}
+                resolutionX={32}
+                resolutionY={32}
+                punch={1}
+              />
+            </div>
 
             <div className={styles.sp134postImageOverlay}>
               <span className={styles.sp136postImageOverlayIcon}>
@@ -57,7 +89,7 @@ const SinglePost: React.FC<{ photoData?: PhotoData }> = ({ photoData }) => {
                 <a href={photoData.links.download} download target="_blank">
                   {/* open full screen arrow icon on the right top */}
                   <i className="bi bi-box-arrow-up-right"></i>
-                <span className="sp137iconNumber">{photoData.downloads}</span>
+                  <span className="sp137iconNumber">{photoData.downloads}</span>
                 </a>
               </span>
             </div>

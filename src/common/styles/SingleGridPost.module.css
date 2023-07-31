@@ -1,9 +1,9 @@
 .gop237gridImage
 {
   /* width: 90%; */
-  height: 30vw;
+  /* height: 30vw; */
   object-fit: cover;
-  width: 30vw;
+  /* width: 30vw; */
   border-radius: 3px;
   /* margin-left: 5%; */
 }
@@ -16,18 +16,24 @@
   opacity: 0.8;
   
   scale:1.01;
-  transition: all 50ms ease-in-out;
+  transition: all 100ms ease-in-out;
 }
 
+
+.gop236gridImage
+{
+  position: relative;
+  height: 30vw;
+  width: 30vw;
+}
 @media (max-width: 768px) {
-  .gop237gridImage
+  .gop236gridImage
   {
     width: 40vw;
     height: 40vw;
     /* height: 40vh; */
-    object-fit: cover;
-    border-radius: 3px;
-    /* margin-top: 5vw; */
+    /* object-fit: cover; */
+    /* border-radius: 3px; */
     /* margin-left: 5%; */
   }
 }
