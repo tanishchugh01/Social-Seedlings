@@ -158,6 +158,13 @@ li {
   height: 90vh;
 }
 
+.horizontalCenter
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* body{
   background-image: url("https://assets.website-files.com/60d8b73075d915233e404041/60d8b73075d9155b1840405c_bg.jpg");
   background-size: contain;
