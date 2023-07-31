@@ -33,7 +33,6 @@ const Profile: React.FC<{ userName?: string | string[] }> = ({ userName }) => {
     return <LoaderComponent />;
   }
 
-  // unsplash profile
   return (
     <div className={styles.pf231root}>
       <div className={styles.pf235left}>

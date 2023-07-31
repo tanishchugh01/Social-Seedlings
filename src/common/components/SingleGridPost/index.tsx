@@ -29,7 +29,7 @@ const SingleGridPost: React.FC<{ photo: PhotoData }> = ({ photo }) => {
             height: "100%",
             width: "100%",
             objectFit: "cover",
-            opacity: isImageLoaded ? 0.5 : 1,
+            opacity: isImageLoaded ? 0 : 1,
             transition: "opacity 0.3s ease-in-out",
           }}
           resolutionX={32}

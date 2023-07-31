@@ -3,23 +3,37 @@ import { AxiosResponse } from "axios";
 import { PhotoData } from "@/common/types/PhotoData";
 import { CONSTANTS } from "@/common/constants/CONSTANTS";
 import { number } from "prop-types";
+import isCacheExist from "@/services/cache/isCacheExist";
+import addDataToCache from "@/services/cache/addDataToCache";
 
-export async function randomPhotoApi ({page=CONSTANTS.API.UNSPLASH.page_random,urlString="/photos"}): Promise<AxiosResponse<PhotoData[]>> {
-  // try {
-  //   // page= CONSTANTS.API.UNSPLASH.page_random;
-  //   const response = await unsplashApi.get<PhotoData[]>(urlString, {
-  //     params: { count: CONSTANTS.API.UNSPLASH.PAGE_LIMIT, page:page },
-  //   });
-  //   console.log(response)
-  //   return response;
-  // } catch (error) {
-  //   console.error("Error fetching photos:", error);
+export async function randomPhotoApi ({page=CONSTANTS.API.UNSPLASH.page_random,urlString="/photos"}): Promise<PhotoData[]> {
+  const urlKey = urlString + page;
+  
+  try{
+    const cacheStorage = await caches.open('newsFeed');
+    const cachedResponse = await cacheStorage.match(urlKey);
+    
+    if(isCacheExist("newsFeed",urlKey) && cacheStorage && cachedResponse){
+      return await cachedResponse.json();
+    }
+  
+    // page= CONSTANTS.API.UNSPLASH.page_random;
+    const response = await unsplashApi.get<PhotoData[]>(urlString, {
+      params: { count: CONSTANTS.API.UNSPLASH.PAGE_LIMIT, page:page },
+    });
+    
+    addDataToCache("newsFeed",urlKey,response.data);
+    // console.log(response)
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching photos:", error);
   //   throw error;
   // }
   
+  // if API response limit is exceeded, then I am showing random data
+  
   return (
-    {
-      "data": [
+       [
           {
               "id": "Y7HQpT2BM0A",
               "slug": "a-black-and-white-photo-of-a-pregnant-woman-Y7HQpT2BM0A",
@@ -730,55 +744,7 @@ export async function randomPhotoApi ({page=CONSTANTS.API.UNSPLASH.page_random,u
                   }
               }
           }
-      ],
-      "status": 200,
-      "statusText": "",
-      "headers": {
-          "cache-control": "max-age=7200,stale-if-error=3600,stale-while-revalidate=60",
-          "content-language": "en",
-          "content-length": "2515",
-          "content-type": "application/json",
-          "link": "<https://api.unsplash.com/users/rudnrina/photos?count=10&page=8>; rel=\"last\", <https://api.unsplash.com/users/rudnrina/photos?count=10&page=2>; rel=\"next\"",
-          "x-per-page": "10",
-          "x-ratelimit-limit": "50",
-          "x-ratelimit-remaining": "48",
-          "x-total": "76"
-      },
-      "config": {
-          "transitional": {
-              "silentJSONParsing": true,
-              "forcedJSONParsing": true,
-              "clarifyTimeoutError": false
-          },
-          "adapter": [
-              "xhr",
-              "http"
-          ],
-          "transformRequest": [
-              null
-          ],
-          "transformResponse": [
-              null
-          ],
-          "timeout": 0,
-          "xsrfCookieName": "XSRF-TOKEN",
-          "xsrfHeaderName": "X-XSRF-TOKEN",
-          "maxContentLength": -1,
-          "maxBodyLength": -1,
-          "env": {},
-          "headers": {
-              "Accept": "application/json, text/plain, */*",
-              "Authorization": "Client-ID bm_iQ7vqiswwIPC_vHphSF3TlnCvFhW4P0lutVXLF4k"
-          },
-          "baseURL": "https://api.unsplash.com/",
-          "params": {
-              "count": 10,
-              "page": 1
-          },
-          "method": "get",
-          "url": "/users/rudnrina/photos"
-      },
-      "request": {}
-  }
+      ]
   )
-};
+    }
+  };

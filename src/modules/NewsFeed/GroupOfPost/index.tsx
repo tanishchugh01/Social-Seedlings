@@ -20,7 +20,7 @@ const GroupOfPost: React.FC<{
     randomPhotoApi({ page, urlString })
       .then((res) => {
         setIsLoaded(true);
-        setPhotos(res?.data);
+        setPhotos(res);
       })
       .catch((err) => {
         setError(err);
