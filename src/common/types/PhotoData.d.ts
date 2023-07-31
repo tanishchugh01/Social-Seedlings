@@ -42,12 +42,12 @@ export interface PhotoData {
     health: {
       status: string;
       approved_on: string;
-    };
+    }| any;
     interiors: {
       status: string;
       approved_on: string;
-    };
-  };
+    }| any;
+  }| null |{};
   user: {
     id: string;
     updated_at: string;
@@ -58,7 +58,7 @@ export interface PhotoData {
     twitter_username: null;
     portfolio_url: string | null;
     bio: string;
-    location: null;
+    location: string | null;
     links: {
       self: string;
       html: string;
