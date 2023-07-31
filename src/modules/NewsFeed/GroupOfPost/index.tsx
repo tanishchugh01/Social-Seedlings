@@ -11,12 +11,13 @@ const GroupOfPost: React.FC<{
   page: number;
   urlString: string;
   isScroll: Boolean;
-}> = ({ page = 1, urlString = "/photos", isScroll = true }) => {
+  setIsError: Function
+}> = ({ page = 1, urlString = "/photos", isScroll = true, setIsError }) => {
   const [photos, setPhotos] = useState<PhotoData[]>([]);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
 
-  useMemo(() => {
+  useEffect(() => {
     randomPhotoApi({ page, urlString })
       .then((res) => {
         setIsLoaded(true);
@@ -24,11 +25,12 @@ const GroupOfPost: React.FC<{
       })
       .catch((err) => {
         setError(err);
+        setIsError(true);
       });
   }, [page, urlString]);
 
   if (error) {
-    return <ErrorComponent message={error.message} />;
+    return <ErrorComponent error={error} />;
   } else if (!isLoaded) {
     return <Loader />;
   }

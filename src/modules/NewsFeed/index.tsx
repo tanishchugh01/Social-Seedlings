@@ -58,8 +58,10 @@ const NewsFeed: NextPage<{ urlString?: string | undefined, isScroll?:Boolean }> 
   // };
 
   const [afterArr, setAfterArr] = useState<Array<number>>([1]);
-
+  
+  const [isError, setIsError] = useState<boolean>(false);
   const addData = () => {
+    // if (isError) return;
     const newArr = [...afterArr];
     newArr.push(afterArr.length + 1);
     console.log(newArr)
@@ -71,15 +73,15 @@ const NewsFeed: NextPage<{ urlString?: string | undefined, isScroll?:Boolean }> 
       <InfiniteScroll
         dataLength={afterArr.length}
         next={addData}
-        hasMore={true}
+        hasMore={!isError}
         loader={<LoaderComponent/>}
         endMessage={
           <p style={{ textAlign: "center" }}>
-            <b>Yay! You have seen it all</b>
+            <b>Thats it!</b>
           </p>
         }>
         {afterArr.map((afterVal) => (
-          <GroupOfPost key={afterVal} page={afterVal} urlString={urlString} isScroll={isScroll} />
+          <GroupOfPost key={afterVal} page={afterVal} urlString={urlString} isScroll={isScroll} setIsError={setIsError}/>
         ))}
       </InfiniteScroll>
     </div>

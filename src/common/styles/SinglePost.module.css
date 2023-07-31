@@ -1,3 +1,9 @@
+
+
+/* .sp121postBody {
+  background-color: black;
+} */
+
 .sp121postBody {
   width: 100%;
   display: flex;
@@ -7,8 +13,10 @@
   padding: 3%;
   padding-bottom: 0;
   border: 0.5px #c0c0c0 solid;
+  border-top: 0;
   border-radius: 2px;
 }
+
 
 .sp123postContent {
   width: 100%;
