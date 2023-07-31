@@ -52,7 +52,7 @@ const NavBar: React.FC = () => {
           </a>
         </li>
         <li>
-          <a href="https://github.com/tanishchugh01/Social-Seedlings" target="_blank">
+          <a href="https://github.com/tanishchugh01/Sweet-Seedlings" target="_blank">
             Github &nbsp;
             <i className="bi bi-github"></i>
           </a>
